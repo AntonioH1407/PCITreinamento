@@ -5,7 +5,7 @@ import ListarComBotao from '../../components/ListarComBotao';
 const headerTitle = "Biblioteca";
 const headerItems = [
     ['Home', 'HomeBiblioteca'],
-    ['Lista de Livros', 'livroLista'],
+    ['Lista de Livros', 'LivroLista', 'EmprestimoCadastro'],
 ];
 const headerColor = '#008000';
 
@@ -41,9 +41,35 @@ const LivroLista = ({ navigation }) => {
                         permissao="3"
                         exibirBotao={true}
                         textoBotao={'Adicionar Livro'}
-                        telaFormulario={'livroCadastro'}
+                        telaFormulario={'LivroCadastro'}
                         navigation={navigation}
                         corBotao={headerColor}
+                        
+                    />
+                    <ListarComBotao
+                        databaseName={"biblioteca.db"}
+                        tableFields={{
+                            Emprestimo: {
+                                "fields": ["livro" , "nome_usuario"],
+                            }
+                        }}
+                        feldsTypes={[{
+                            "livro": "picker",
+                            "nome_usuario": "text",
+                            "data_emprestimo": "hrauto",
+                            "data_devolucao": "hrauto"
+                        }]}
+                        depth={1}
+                        feldslabels={{
+                            titulo: "Título"
+                        }}
+                        permissao="3"
+                        exibirBotao={true}
+                        textoBotao={'Adicionar Emprestimo'}
+                        telaFormulario={'EmprestimoCadastro'}
+                        navigation={navigation}
+                        corBotao={headerColor}
+                        
                     />
                 </View>
             </View>

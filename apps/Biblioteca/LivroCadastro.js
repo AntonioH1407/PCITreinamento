@@ -6,9 +6,12 @@ import Header from '../../components/HeaderComponent';
 const headerTitle = "Biblioteca";
 const headerItems = [
     ['Home', 'HomeBiblioteca'],
-    ['Lista de Livros', 'livroLista'],
+    ['Lista de Livros', 'LivroLista', 'EmprestimoCadastro'],
 ];
 const headerColor = '#008000';
+const fields = [
+
+];
 
 const camposOcultos = ['id', 'data_cadastro', 'id_novo', 'foi_atualizado', 'foi_criado'];
 const feldsTypes = [{
@@ -31,7 +34,7 @@ const LivroCadastro = ({ navigation }) => {
         <FormComponent
             database={'biblioteca.db'}
             tabelas={['Livro']}
-            felds={[]}
+            fields={[fields]}
             feldsTypes={feldsTypes}
             initialData={{}}
             ocultar={camposOcultos}
