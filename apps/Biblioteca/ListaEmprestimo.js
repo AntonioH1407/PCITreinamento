@@ -10,7 +10,7 @@ const headerItems = [
 ];
 const headerColor = '#008000';
 
-const LivroLista = ({ navigation }) => {
+const ListaEmprestimo = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.appContainer}>
@@ -24,16 +24,15 @@ const LivroLista = ({ navigation }) => {
                     <ListarComBotao
                         databaseName={"biblioteca.db"}
                         tableFields={{
-                            Livro: {
-                                "fields": ["titulo"]
+                            Emprestimo: {
+                                "fields": ["livro" , "nome_usuario"],
                             }
                         }}
                         feldsTypes={[{
-                            "titulo": "text",
-                            "autor": "picker",
-                            "categoria": "picker",
-                            "ano_publicacao": "text",
-                            "data_cadastro": "hrauto"
+                            "livro": "picker",
+                            "nome_usuario": "text",
+                            "data_emprestimo": "hrauto",
+                            "data_devolucao": "hrauto"
                         }]}
                         depth={1}
                         feldslabels={{
@@ -41,8 +40,8 @@ const LivroLista = ({ navigation }) => {
                         }}
                         permissao="3"
                         exibirBotao={true}
-                        textoBotao={'Adicionar Livro'}
-                        telaFormulario={'LivroCadastro'}
+                        textoBotao={'Adicionar Emprestimo'}
+                        telaFormulario={'EmprestimoCadastro'}
                         navigation={navigation}
                         corBotao={headerColor}
                         
@@ -69,5 +68,5 @@ const styles = StyleSheet.create({
     },
 });
     
-export default LivroLista;
+export default ListaEmprestimo;
 

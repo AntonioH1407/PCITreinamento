@@ -6,7 +6,8 @@ import Header from '../../components/HeaderComponent';
 const headerTitle = "Biblioteca";
 const headerItems = [
     ['Home', 'HomeBiblioteca'],
-    ['Lista de Livros', 'LivroLista', 'EmprestimoCadastro'],
+    ['Lista de Livros', 'LivroLista'],
+    ['Lista de Emprestimos', 'ListaEmprestimo']
 ];
 const headerColor = '#008000';
 const fields = [

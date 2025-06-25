@@ -14,7 +14,8 @@ import { setupBibliotecaDatabase } from './BibliotecaDBSetup';
 const headerTitle = "Biblioteca";
 const headerItems = [
     ['Home', 'HomeBiblioteca'],
-    ['Lista de Livros', 'LivroLista', 'EmprestimoCadastro'],
+    ['Lista de Livros', 'LivroLista'],
+    ['Lista de Emprestimos', 'ListaEmprestimo']
 ];
 const headerColor = '#008000';
 
@@ -38,6 +39,12 @@ const HomeScreen = ({ navigation }) => {
                     onPress={() => navigation.navigate('LivroLista')} 
                 >
                     <Text style={styles.buttonText}>Livros </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => navigation.navigate('ListaEmprestimo')} 
+                >
+                    <Text style={styles.buttonText}>Emprestimos </Text>
                 </TouchableOpacity>
             </View>
         </View>

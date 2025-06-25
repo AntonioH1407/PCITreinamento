@@ -14,6 +14,8 @@ import VisitacaoLista from './apps/Transito/visitacaoLista';
 import HomeBiblioteca from './apps/Biblioteca/HomeBiblioteca';
 import LivroCadastro from './apps/Biblioteca/LivroCadastro';
 import LivroLista from './apps/Biblioteca/LivroLista';
+import ListaEmprestimo from './apps/Biblioteca/ListaEmprestimo';
+import EmprestimoCadastro from './apps/Biblioteca/EmprestimoCadastro';
 
 
 const Stack = createStackNavigator();
@@ -68,6 +70,8 @@ export default function App() {
         <Stack.Screen name="HomeBiblioteca" component={HomeBiblioteca}/>
         <Stack.Screen name="LivroCadastro" component={LivroCadastro}/>
         <Stack.Screen name="LivroLista" component={LivroLista} />
+        <Stack.Screen name="ListaEmprestimo" component={ListaEmprestimo} />
+        <Stack.Screen name="EmprestimoCadastro" component={EmprestimoCadastro} />
         
       </Stack.Navigator>
       {/* Troque a condição aqui */}
