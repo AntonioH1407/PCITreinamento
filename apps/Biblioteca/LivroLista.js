@@ -28,7 +28,7 @@ const LivroLista = ({ navigation }) => {
                                 "fields": ["titulo"]
                             }
                         }}
-                        feldsTypes={[{
+                        fieldsTypes={[{
                             "titulo": "text",
                             "autor": "picker",
                             "categoria": "picker",

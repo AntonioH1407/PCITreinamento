@@ -14,13 +14,14 @@ const fields = [
 
 ];
 
-const camposOcultos = ['id', 'data_cadastro', 'id_novo', 'foi_atualizado', 'foi_criado'];
-const feldsTypes = [{
+const camposOcultos = ['id', 'data_cadastro', 'id_novo', 'foi_atualizado', 'foi_criado', 'livro'];
+const fieldsTypes = [{
     "titulo": "text",
     "autor": "picker",
     "categoria": "picker",
     "ano_publicacao": "text",
-    "data_cadastro": "hrauto"
+    "data_cadastro": "hrauto",
+    "capa": "upload",
 }];
 
 const LivroCadastro = ({ navigation }) => {
@@ -34,9 +35,9 @@ const LivroCadastro = ({ navigation }) => {
         />
         <FormComponent
             database={'biblioteca.db'}
-            tabelas={['Livro']}
+            tabelas={['Livro', 'LivroAutor']}
             fields={[fields]}
-            feldsTypes={feldsTypes}
+            fieldsTypes={fieldsTypes}
             initialData={{}}
             ocultar={camposOcultos}
             labels={{
@@ -44,6 +45,7 @@ const LivroCadastro = ({ navigation }) => {
                 autor: "Autor",
                 categoria: "Categoria",
                 ano_publicacao: "Ano de Publicação",
+                capa: "Capa do Livro",
         }}
             barraPersonalizada={{
                 Livro: 'Cadastro de Livro',

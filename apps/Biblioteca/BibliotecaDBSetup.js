@@ -31,13 +31,28 @@ const createLivroTable = async () => {
     await SQLComponent.createTable(NomeDatabase, 'Livro', [
         { name: 'id', type: 'INTEGER', primaryKey: true },
         { name: 'titulo', type: 'TEXT' },
-        { name: 'autor', type: 'INTEGER', foreignKey: { table: 'Autor', column: 'id' } },
         { name: 'categoria', type: 'INTEGER', foreignKey: { table: 'Categoria', column: 'id' } },
         { name: 'ano_publicacao', type: 'TEXT' },
+        { name: 'capa', type: 'TEXT' },
         ]);
     } catch (error) {
         console.error('Erro ao criar a tabela "Livro":', error);
 }
+};
+
+const createLivroAutorTable = async () => {
+    try{
+        await SQLComponent.createTable(NomeDatabase, 'LivroAutor', [
+            { name: 'id', type: 'INTEGER', primaryKey: true },
+            { name: 'livro', type: 'INTEGER', foreignKey: {table: 'Livro', column: 'id' } },
+            { name: 'autor', type: 'INTEGER', foreignKey: {table: 'Autor', column: 'id' } },
+
+        ])
+    }
+    catch (error){
+        console.error('Erro ao criar tabela "AutorLivro":', erro);
+    }
+
 };
 
 const createEmprestimoTable = async () => {
@@ -47,7 +62,7 @@ const createEmprestimoTable = async () => {
             { name: 'livro', type: 'INTEGER', foreignKey: { table: 'Livro', column: 'id' } },
             { name: 'data_emprestimo', type: 'TEXT' },
             { name: 'data_devolucao', type: 'TEXT' },
-            { name: 'nome_usuario', type: 'TEXT' },
+            { name: 'usuario', type: 'TEXT' },
         ]);
     } catch (error) {
         console.error('Erro ao criar a tabela "Emprestimo":', error);  
@@ -59,6 +74,7 @@ export async function setupBibliotecaDatabase() {
     await createCategoriaTable();
     await createLivroTable();
     await createEmprestimoTable();
+    await createLivroAutorTable();
      
     try {
     

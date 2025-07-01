@@ -25,14 +25,17 @@ const ListaEmprestimo = ({ navigation }) => {
                         databaseName={"biblioteca.db"}
                         tableFields={{
                             Emprestimo: {
-                                "fields": ["livro" , "nome_usuario"],
+                                "fields": ["usuario"],
+                            },
+                            Livro: {
+                                "fields": ["titulo"],
                             }
                         }}
-                        feldsTypes={[{
+                        fieldsTypes={[{
                             "livro": "picker",
-                            "nome_usuario": "text",
-                            "data_emprestimo": "hrauto",
-                            "data_devolucao": "hrauto"
+                            "usuario": "text",
+                            "data_emprestimo": "data",
+                            "data_devolucao": "data"
                         }]}
                         depth={1}
                         feldslabels={{

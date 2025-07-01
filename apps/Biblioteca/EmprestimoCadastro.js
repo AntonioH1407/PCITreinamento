@@ -15,12 +15,12 @@ const fields = [
 
 ];
 
-const camposOcultos = ['id', 'data_cadastro', 'id_novo', 'foi_atualizado', 'foi_criado'];
-const feldsTypes = [{
-    "livro": "picker",
-    "nome_usuario": "text",
-    "data_emprestimo": "hrauto",
-    "data_devolucao": "hrauto"
+const camposOcultos = ['id', 'data_cadastro', 'id_novo', 'foi_atualizado', 'foi_criado', 'autor','categoria','ano_publicacao','data_cadastro','capa'];
+const fieldsTypes = [{
+    "livro": "pickerRelacional",
+    "usuario": "text",
+    "data_emprestimo": "data",
+    "data_devolucao": "data"
 }];
 
 const EmprestimoCadastro = ({ navigation }) => {
@@ -36,14 +36,14 @@ const EmprestimoCadastro = ({ navigation }) => {
             database={'biblioteca.db'}
             tabelas={['Emprestimo']}
             fields={[fields]}
-            feldsTypes={feldsTypes}
+            fieldsTypes={fieldsTypes}
             initialData={{}}
             ocultar={camposOcultos}
             labels={{
                 livro: "Livro",
                 data_emprestimo: "Data Emprestimo",
                 data_devolucao: "Data Devolução",
-                nome_usuario: "Usuário",
+                usuario: "Usuário",
         }}
             barraPersonalizada={{
                 Emprestimo: 'Cadastro de Emprestimos',
